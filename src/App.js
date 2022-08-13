@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./styles.css"
+
+const INITIAL_STATE = [
+  {id: 1, header: "Shopping", complete: false},
+  {id: 2, header: "pay the bills", complete: true}
+]
+
 
 function App() {
+
+  const [list, setList] = useState(INITIAL_STATE);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Todo List</h1>
+      <div className="adding_form">
+        <input placeholder="add to do list" />
+        <button>Add</button>
+      </div>
+      <div className="list">
+        {list.map(item => (
+          <div className={item.complete ? "complete" : ""}>{item.header}</div>
+        ))}
+      </div>
+      <button className="clear">Clear the completed</button>
     </div>
   );
 }
