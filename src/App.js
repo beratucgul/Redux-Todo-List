@@ -1,11 +1,8 @@
 import React from "react";
-import Redux from "./Redux/Redux";
-
+import TodoList from "./Redux/TodoList";
 
 function App() {
-  return (
-    <Redux/>
-  );
+  return <TodoList />;
 }
 
 export default App;
