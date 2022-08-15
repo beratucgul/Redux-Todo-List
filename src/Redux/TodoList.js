@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addToList, toggleTodoListItemClick, clearTodoListItem } from "./actions/todoActions";
-import { INITIAL_STATE } from "../Constants/todoListConstants";
+import { INITIAL_STATE } from "./reducers/todoReducers";
 import "../styles.css";
 
 
@@ -19,7 +19,7 @@ function TodoList() {
   const dispatch = useDispatch();
 
   return (
-    <div className="Redux">
+    <div className="App">
       <h1>Todo List</h1>
       <div className="adding_form">
         <input
@@ -47,7 +47,7 @@ function TodoList() {
           </div>
         ))}
       </div>
-      <button onClick={() => dispatch(clearTodoListItem)} className="clear">
+      <button onClick={() => dispatch(clearTodoListItem())} className="clear">
         Clear the completed
       </button>
     </div>
